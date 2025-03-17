@@ -8,11 +8,21 @@ function createNavBar() {
     const ul = document.createElement('ul');
 
     const about = document.createElement('li');
-    about.innerHTML = "Om"
+    const aboutLink = document.createElement('a');
+    aboutLink.innerHTML = "Om"
+
+
     const examples = document.createElement('li');
-    examples.innerHTML = "Se hvad jeg kan"
+    const examplesLink = document.createElement('a');
+    examplesLink.innerHTML = "Projekter"
+
     const contact = document.createElement('li');
-    contact.innerHTML = "Kontakt"
+    const contactLink = document.createElement('a');
+    contactLink.innerHTML = "Kontakt"
+
+    about.appendChild(aboutLink);
+    examples.appendChild(examplesLink);
+    contact.appendChild(contactLink);
 
     ul.appendChild(about);
     ul.appendChild(examples);
