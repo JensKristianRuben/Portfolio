@@ -1,0 +1,23 @@
+.section{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#section1{
+    background: #f0f0f0;
+}
+#section2{
+    background: #d9d9d9;
+}
+#section3{
+    background: #bfbfbf;
+}
+#section4{
+    background: #a6a6a6;
+}
+#section5{
+    background: #8c8c8c;
+}
