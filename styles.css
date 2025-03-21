@@ -17,7 +17,6 @@ nav {
 
 }
 
-
 ul {
     list-style: none;
     padding: 0;
@@ -71,33 +70,62 @@ a:hover::after {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    position: relative;
+    padding-right: 10%;
+    gap: 10%;
+}
+#presentation-div{
+    height: 100%;
+    width: 40%;
+    background: #e3f2fd;
+    display: flex;
+    border-radius: 10%;
+    padding: 1%;
+    justify-content: flex-start;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-#meWithHair {
+#name{
+    font-size: 3em;
+    text-align: center;
+}
+#description{
+    font-size: 2em;
+}
+
+#profile-img-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+}
+
+#profilePicture {
     width: 700px;
     height: 700px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: 70% 80%;
+    object-position: 50% 80%;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     border: 5px solid #c9fafa;
     transition: all 0.3s ease-in-out;
-    margin-right: 10%;
     cursor: pointer;
+    position: relative;
 }
 
-#thugLifeGlasses{
+#thugLifeGlasses {
     width: 300px;
     height: 300px;
     position: absolute;
-    top: 340px;
-    left: 1790px;
+    top: 16%;
+    left: 33%;
     display: none;
+    z-index: 10;
 }
 
-#meWithHair:hover {
-    border: 20px solid #c9fafa;
-}
+
 
 @media (max-width: 768px) {
     nav {
@@ -115,4 +143,26 @@ a:hover::after {
         display: block;
         padding: 10px;
     }
+}
+.dark-mode {
+    background: #121212;
+    color: white;
+}
+
+.dark-mode a {
+    color: white;
+}
+.dark-mode a::before,
+.dark-mode a::after {
+    background: #6d7154;
+}
+
+.dark-mode #presentation-div {
+    background: #1e1e1e;
+    color: white;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode #profilePicture {
+    border: 5px solid #6d7154;
 }
