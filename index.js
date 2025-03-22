@@ -92,7 +92,6 @@ function createDarkModeButton() {
     const button = document.createElement("button");
     button.id = "darkModeToggle";
     button.textContent = "🌙 Dark Mode";
-
     button.style.position = "fixed";
     button.style.top = "20px";
     button.style.right = "20px";
