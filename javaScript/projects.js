@@ -35,7 +35,7 @@ function createNavBar() {
     document.body.appendChild(navBar);
 }
 
-function createSections(){
+function createSections() {
 
     const containerDiv = document.createElement('div');
     containerDiv.classList.add('projectsContainer');
@@ -50,12 +50,26 @@ function createSections(){
     document.body.appendChild(containerDiv);
 }
 
-function projectDiv1(){
+function projectDiv1() {
     const projectDiv1 = document.getElementById('projectDiv1');
 
     const headline = document.createElement("h1")
     headline.classList.add('title');
     headline.innerText = 'Hvor mange uger har du tilbage?';
 
+    const description = document.createElement("h3");
+    description.classList.add('description');
+    description.innerText = "En visuel præsentation af hvor mange uger du har tilbage at leve i. Og hvor mange af dem du måske har spildt ind til nu?"
+
+    const project1Link = document.createElement("a");
+    project1Link.id = "project1Button";
+    project1Link.innerText = "Se mere";
+    project1Link.href = "weeksLeft.html";
+
+
     projectDiv1.appendChild(headline);
+    projectDiv1.appendChild(description);
+    projectDiv1.appendChild(project1Link);
+
+
 }
