@@ -1,5 +1,6 @@
 createNavBar()
 createSections()
+projectDiv1()
 
 function createNavBar() {
     const navBar = document.createElement('nav');
@@ -36,13 +37,25 @@ function createNavBar() {
 
 function createSections(){
 
-    for (let i = 1; i < 6; i++) {
-        const section = document.createElement('div');
-        section.classList.add('section');
-        section.id = 'section' + i;
-        document.body.appendChild(section);
+    const containerDiv = document.createElement('div');
+    containerDiv.classList.add('projectsContainer');
+
+    for (let i = 1; i < 9; i++) {
+        const projectDiv = document.createElement('div');
+        projectDiv.classList.add('project');
+        projectDiv.id = 'projectDiv' + i;
+        containerDiv.append(projectDiv);
     }
 
+    document.body.appendChild(containerDiv);
+}
 
+function projectDiv1(){
+    const projectDiv1 = document.getElementById('projectDiv1');
 
+    const headline = document.createElement("h1")
+    headline.classList.add('title');
+    headline.innerText = 'Hvor mange uger har du tilbage?';
+
+    projectDiv1.appendChild(headline);
 }
