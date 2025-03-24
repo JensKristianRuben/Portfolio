@@ -115,3 +115,11 @@ body {
 .shake {
     animation: shake 0.4s ease;
 }
+
+.weeksLivedDiv{
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: lawngreen;
+    margin: 2px;
+}
