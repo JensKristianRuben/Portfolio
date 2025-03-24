@@ -5,7 +5,7 @@ function createMainContent() {
     const sliderInput = document.createElement("input");
     sliderInput.id = "sliderInput";
     sliderInput.type = "range";
-    sliderInput.value = "64";
+    sliderInput.value = "34";
     sliderInput.max = 64;
     sliderInput.min = 4;
 
@@ -15,7 +15,7 @@ function createMainContent() {
 
     const choosenAge = document.createElement("div");
     choosenAge.id = "choosenAge";
-    choosenAge.innerText = "64"
+    choosenAge.innerText = "34"
 
     const genderInput = document.createElement("input");
     genderInput.type = "hidden";
@@ -55,7 +55,7 @@ function createMainContent() {
         event.preventDefault();
 
         const data = {
-            age: sliderInput.value,
+            age: Number(sliderInput.value),
             gender: genderInput.value
         };
 
@@ -69,6 +69,8 @@ function createMainContent() {
             }, 500);
 
             return
+        } else {
+            generateIllustration(data.age, data.gender)
         }
 
         console.log("Form data:", data);
@@ -84,6 +86,112 @@ function createMainContent() {
     form.appendChild(button);
 
     document.body.appendChild(form);
+}
+
+function generateIllustration(age, gender) {
+
+    const expectedYearsMap = new Map([
+        [64, {male: 70.3, female: 74.6}],
+        [63, {male: 70.1, female: 74.7}],
+        [62, {male: 70.3, female: 74.9}],
+        [61, {male: 70.6, female: 75.4}],
+        [60, {male: 70.7, female: 75.6}],
+        [59, {male: 70.8, female: 75.7}],
+        [58, {male: 70.7, female: 75.9}],
+        [57, {male: 70.7, female: 76.1}],
+        [56, {male: 70.8, female: 76.3}],
+        [55, {male: 70.8, female: 76.6}],
+        [54, {male: 71.1, female: 76.8}],
+        [53, {male: 71.1, female: 76.8}],
+        [52, {male: 71.2, female: 77.1}],
+        [51, {male: 71.5, female: 77.5}],
+        [50, {male: 71.3, female: 77.4}],
+        [49, {male: 71.2, female: 77.3}],
+        [48, {male: 71.1, female: 77.2}],
+        [47, {male: 71.4, female: 77.4}],
+        [46, {male: 71.5, female: 77.5}],
+        [45, {male: 71.5, female: 77.5}],
+        [44, {male: 71.6, female: 77.5}],
+        [43, {male: 71.6, female: 77.5}],
+        [42, {male: 71.8, female: 77.6}],
+        [41, {male: 71.8, female: 77.7}],
+        [40, {male: 72.0, female: 77.7}],
+        [39, {male: 72.0, female: 77.7}],
+        [38, {male: 72.2, female: 77.8}],
+        [37, {male: 72.5, female: 77.9}],
+        [36, {male: 72.5, female: 77.8}],
+        [35, {male: 72.6, female: 77.9}],
+        [34, {male: 72.7, female: 77.9}],
+        [33, {male: 72.9, female: 78.0}],
+        [32, {male: 73.3, female: 78.4}],
+        [31, {male: 73.7, female: 78.7}],
+        [30, {male: 74.0, female: 78.8}],
+        [29, {male: 74.3, female: 79.0}],
+        [28, {male: 74.5, female: 79.2}],
+        [27, {male: 74.7, female: 79.2}],
+        [26, {male: 74.9, female: 79.5}],
+        [25, {male: 75.2, female: 79.9}],
+        [24, {male: 75.6, female: 80.2}],
+        [23, {male: 75.9, female: 80.4}],
+        [22, {male: 75.9, female: 80.5}],
+        [21, {male: 76.3, female: 80.7}],
+        [20, {male: 76.5, female: 80.8}],
+        [19, {male: 77.1, female: 81.2}],
+        [18, {male: 77.3, female: 81.6}],
+        [17, {male: 77.9, female: 81.9}],
+        [16, {male: 78.0, female: 82.0}],
+        [15, {male: 78.5, female: 82.7}],
+        [14, {male: 78.6, female: 82.5}],
+        [13, {male: 78.8, female: 82.8}],
+        [12, {male: 79.0, female: 82.9}],
+        [11, {male: 79.0, female: 82.9}],
+        [10, {male: 79.3, female: 83.2}],
+        [9, {male: 79.5, female: 83.6}],
+        [8, {male: 79.6, female: 83.4}],
+        [7, {male: 79.4, female: 83.1}],
+        [6, {male: 79.6, female: 83.4}],
+        [5, {male: 79.4, female: 83.1}],
+        [4, {male: 79.6, female: 83.4}]
+    ]);
+
+    const expectedYears = expectedYearsMap.get(age)?.[gender];
+
+    document.body.innerHTML = "";
+
+    const weeksLived = age * 52
+    const weeksLeftToLive = (expectedYears - age) * 52
+
+    document.body.style.margin = "50px";
+    document.body.style.flexDirection = "row";
+    document.body.style.flexWrap = "wrap";
+    document.body.style.alignContent = "flex-start";
+
+    function createWeekDiv() {
+        const weeksLivedDiv = document.createElement("div");
+        weeksLivedDiv.classList.add("weeksLivedDiv");
+        document.body.appendChild(weeksLivedDiv);
+    }
+
+    // todo: Lav nedenstående div om til 2 div'er med henholdvis levet og resterende uger - de skal i en div for sig også -
+    // todo: skal
+    const div = document.createElement("div");
+    div.innerText = 0
+    div.style.color = "white";
+    document.body.appendChild(div);
+
+    function loopWithTimeout(i) {
+        if (i < weeksLived) {
+            setTimeout(() => {
+                createWeekDiv(i);
+                div.innerText = i;
+                loopWithTimeout(i + 1);
+            }, i * 0.1);
+        }
+    }
+
+
+    loopWithTimeout(0);
+
 }
 
 createMainContent()
