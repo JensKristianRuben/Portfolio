@@ -158,40 +158,64 @@ function generateIllustration(age, gender) {
 
     document.body.innerHTML = "";
 
+    const outerDiv = document.createElement('div');
+    outerDiv.id = "outerDiv";
+
+
     const weeksLived = age * 52
     const weeksLeftToLive = (expectedYears - age) * 52
 
-    document.body.style.margin = "50px";
-    document.body.style.flexDirection = "row";
-    document.body.style.flexWrap = "wrap";
-    document.body.style.alignContent = "flex-start";
+    const weeksLivedNumber = document.createElement("div");
+    weeksLivedNumber.classList.add("numberDiv");
+    weeksLivedNumber.innerText = 0;
+    const weeksLeftNumber = document.createElement("div");
+    weeksLeftNumber.classList.add("numberDiv");
+    weeksLeftNumber.innerText = 0;
+
+    const weekstext1 = document.createElement("div");
+    weekstext1.classList.add("numberDiv");
+    weekstext1.innerText = "Uger";
+    const weekstext2 = document.createElement("div");
+    weekstext2.classList.add("numberDiv");
+    weekstext2.innerText = "Uger";
+
+    const illustrationDiv = document.createElement("div");
+    illustrationDiv.id = "illustrationDiv";
+
+    document.body.appendChild(outerDiv);
+    outerDiv.appendChild(weeksLivedNumber);
+    outerDiv.appendChild(weekstext1);
+    outerDiv.appendChild(weeksLeftNumber);
+    outerDiv.appendChild(weekstext2);
+    outerDiv.appendChild(illustrationDiv)
 
     function createWeekDiv() {
         const weeksLivedDiv = document.createElement("div");
         weeksLivedDiv.classList.add("weeksLivedDiv");
-        document.body.appendChild(weeksLivedDiv);
+        illustrationDiv.appendChild(weeksLivedDiv);
     }
 
-    // todo: Lav nedenstående div om til 2 div'er med henholdvis levet og resterende uger - de skal i en div for sig også -
-    // todo: skal
-    const div = document.createElement("div");
-    div.innerText = 0
-    div.style.color = "white";
-    document.body.appendChild(div);
+    function createWeeksLeftDiv() {
+        const weeksLeftDiv = document.createElement("div");
+        weeksLeftDiv.classList.add("weeksLeftDiv");
+        illustrationDiv.appendChild(weeksLeftDiv);
+    }
 
-    function loopWithTimeout(i) {
-        if (i < weeksLived) {
+    function loopWithTimeout(i, numberOfDivsToGenerate, callback, numberElement, onComplete) {
+        if (i < numberOfDivsToGenerate) {
             setTimeout(() => {
-                createWeekDiv(i);
-                div.innerText = i;
-                loopWithTimeout(i + 1);
-            }, i * 0.1);
+                callback(i);
+                numberElement.innerText = i;
+                loopWithTimeout(i + 1, numberOfDivsToGenerate, callback, numberElement, onComplete);
+            }, 10);
+        } else if (onComplete) {
+            onComplete();
         }
     }
 
-
-    loopWithTimeout(0);
-
+    loopWithTimeout(0, weeksLived, createWeekDiv, weeksLivedNumber, () => {
+        loopWithTimeout(0, weeksLeftToLive, createWeeksLeftDiv, weeksLeftNumber);
+    });
 }
 
 createMainContent()
