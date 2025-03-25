@@ -174,10 +174,10 @@ function generateIllustration(age, gender) {
 
     const weekstext1 = document.createElement("div");
     weekstext1.classList.add("numberDiv");
-    weekstext1.innerText = "Uger";
+    weekstext1.innerText = "Uger levet";
     const weekstext2 = document.createElement("div");
     weekstext2.classList.add("numberDiv");
-    weekstext2.innerText = "Uger";
+    weekstext2.innerText = "Uger tilbage";
 
     const illustrationDiv = document.createElement("div");
     illustrationDiv.id = "illustrationDiv";
@@ -216,6 +216,21 @@ function generateIllustration(age, gender) {
     loopWithTimeout(0, weeksLived, createWeekDiv, weeksLivedNumber, () => {
         loopWithTimeout(0, weeksLeftToLive, createWeeksLeftDiv, weeksLeftNumber);
     });
+    createEndResult()
+}
+
+function createEndResult(){
+    // todo: lav år, måneder, uger, dage, minutter, sekunder når illustrationen er færdig
+    const yearsLeftDiv = document.createElement("div");
+    yearsLeftDiv.classList.add("endResultDiv");
+    const yearsLeft = document.createElement("div");
+    const yearsLeftText = document.createElement("div");
+    yearsLeft.innerText = 0;
+    yearsLeftText.innerText = "År"
+
+    yearsLeftDiv.appendChild(yearsLeft)
+    yearsLeftDiv.appendChild(yearsLeftText);
+    document.body.appendChild(yearsLeftDiv);
 }
 
 createMainContent()
