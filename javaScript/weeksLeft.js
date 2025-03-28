@@ -207,7 +207,7 @@ function generateIllustration(age, gender) {
                 callback(i);
                 numberElement.innerText = i;
                 loopWithTimeout(i + 1, numberOfDivsToGenerate, callback, numberElement, onComplete);
-            }, 10);
+            }, 0.5);
         } else if (onComplete) {
             onComplete();
         }
@@ -216,10 +216,10 @@ function generateIllustration(age, gender) {
     loopWithTimeout(0, weeksLived, createWeekDiv, weeksLivedNumber, () => {
         loopWithTimeout(0, weeksLeftToLive, createWeeksLeftDiv, weeksLeftNumber);
     });
-    createEndResult()
+    createEndResult(expectedYears, age)
 }
 
-function createEndResult(){
+function createEndResult(expectedYears, age) {
     // todo: lav år, måneder, uger, dage, minutter, sekunder når illustrationen er færdig
     const yearsLeftDiv = document.createElement("div");
     yearsLeftDiv.classList.add("endResultDiv");
@@ -228,9 +228,88 @@ function createEndResult(){
     yearsLeft.innerText = 0;
     yearsLeftText.innerText = "År"
 
+    const monthsLeft = document.createElement("div");
+    const monthsLeftText = document.createElement("div");
+    monthsLeft.innerText = 0;
+    monthsLeft.id = "monthsLeft";
+    monthsLeftText.innerText = "Måneder"
+
+    const weeksLeft = document.createElement("div");
+    const weeksLeftText = document.createElement("div");
+    weeksLeft.innerText = 0;
+    weeksLeft.id = "weeksLeft";
+    weeksLeftText.innerText = "Uger"
+
+    const daysLeft = document.createElement("div");
+    const daysLeftText = document.createElement("div");
+    daysLeft.innerText = 0;
+    daysLeft.id = "daysLeft";
+    daysLeftText.innerText = "Dage"
+
+    const minutesLeft = document.createElement("div");
+    const minutesLeftText = document.createElement("div");
+    minutesLeft.innerText = 0;
+    minutesLeft.id = "minutesLeft";
+    minutesLeftText.innerText = "Minutter";
+
+    const secondsLeft = document.createElement("div");
+    const secondsLeftText = document.createElement("div");
+    secondsLeft.innerText = 0;
+    secondsLeft.id = "secondsLeft";
+    secondsLeftText.innerText = "Sekunder";
+
     yearsLeftDiv.appendChild(yearsLeft)
     yearsLeftDiv.appendChild(yearsLeftText);
+    yearsLeftDiv.appendChild(monthsLeft);
+    yearsLeftDiv.appendChild(monthsLeftText);
+    yearsLeftDiv.appendChild(weeksLeft);
+    yearsLeftDiv.appendChild(weeksLeftText);
+    yearsLeftDiv.appendChild(daysLeft);
+    yearsLeftDiv.appendChild(daysLeftText);
+    yearsLeftDiv.appendChild(minutesLeft);
+    yearsLeftDiv.appendChild(minutesLeftText);
+    yearsLeftDiv.appendChild(secondsLeft);
+    yearsLeftDiv.appendChild(secondsLeftText);
+
     document.body.appendChild(yearsLeftDiv);
+
+    const yearsLeftNumber = expectedYears - age;
+
+    for (let i = 0; i <= yearsLeftNumber; i++) {
+        setTimeout(() => {
+            yearsLeft.innerText = i;
+        }, i * 500);
+    }
+
+    for (let i = 0; i < yearsLeftNumber * 12; i++) {
+        setTimeout(() => {
+            monthsLeft.innerText = i;
+        }, i * 50)
+    }
+
+    for (let i = 0; i < yearsLeftNumber * 52; i++) {
+        setTimeout(() => {
+            weeksLeft.innerText = i;
+        }, i * 10)
+    }
+
+    for (let i = 0; i < yearsLeftNumber * 365; i++) {
+        setTimeout(() => {
+            daysLeft.innerText = i;
+        }, i)
+    }
+
+    // for (let i = 0; i < yearsLeftNumber * 365 * 24 * 60; i++) {
+    //     setTimeout(() => {
+    //         minutesLeft.innerText = i;
+    //     }, i)
+    // }
+
+    // for (let i = 0; i < yearsLeftNumber * 365 * 24 * 60 * 60; i++) {
+    //     setTimeout(() => {
+    //         secondsLeft.innerText = i;
+    //     }, i)
+    // }
 }
 
 createMainContent()
