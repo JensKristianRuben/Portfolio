@@ -168,4 +168,5 @@ body {
     flex-direction: row;
     color: #ffffff;
     font-size: 50px;
+    gap: 50px;
 }
