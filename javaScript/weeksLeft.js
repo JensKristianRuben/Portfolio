@@ -220,7 +220,6 @@ function generateIllustration(age, gender) {
 }
 
 function createEndResult(expectedYears, age) {
-    // todo: lav år, måneder, uger, dage, minutter, sekunder når illustrationen er færdig
     const yearsLeftDiv = document.createElement("div");
     yearsLeftDiv.classList.add("endResultDiv");
     const yearsLeft = document.createElement("div");
@@ -246,6 +245,12 @@ function createEndResult(expectedYears, age) {
     daysLeft.id = "daysLeft";
     daysLeftText.innerText = "Dage"
 
+    const hoursLeft = document.createElement("div");
+    const hoursLeftText = document.createElement("div");
+    hoursLeft.innerText = 0;
+    hoursLeft.id = "hoursLeft";
+    hoursLeftText.innerText = "Timer";
+
     const minutesLeft = document.createElement("div");
     const minutesLeftText = document.createElement("div");
     minutesLeft.innerText = 0;
@@ -258,6 +263,8 @@ function createEndResult(expectedYears, age) {
     secondsLeft.id = "secondsLeft";
     secondsLeftText.innerText = "Sekunder";
 
+    const outerDiv = document.getElementById("outerDiv");
+
     yearsLeftDiv.appendChild(yearsLeft)
     yearsLeftDiv.appendChild(yearsLeftText);
     yearsLeftDiv.appendChild(monthsLeft);
@@ -266,50 +273,24 @@ function createEndResult(expectedYears, age) {
     yearsLeftDiv.appendChild(weeksLeftText);
     yearsLeftDiv.appendChild(daysLeft);
     yearsLeftDiv.appendChild(daysLeftText);
+    yearsLeftDiv.appendChild(hoursLeft);
+    yearsLeftDiv.appendChild(hoursLeftText);
     yearsLeftDiv.appendChild(minutesLeft);
     yearsLeftDiv.appendChild(minutesLeftText);
     yearsLeftDiv.appendChild(secondsLeft);
     yearsLeftDiv.appendChild(secondsLeftText);
 
-    document.body.appendChild(yearsLeftDiv);
+    outerDiv.appendChild(yearsLeftDiv);
 
     const yearsLeftNumber = expectedYears - age;
+    yearsLeft.innerText = Math.floor(yearsLeftNumber);
 
-    for (let i = 0; i <= yearsLeftNumber; i++) {
-        setTimeout(() => {
-            yearsLeft.innerText = i;
-        }, i * 500);
-    }
-
-    for (let i = 0; i < yearsLeftNumber * 12; i++) {
-        setTimeout(() => {
-            monthsLeft.innerText = i;
-        }, i * 50)
-    }
-
-    for (let i = 0; i < yearsLeftNumber * 52; i++) {
-        setTimeout(() => {
-            weeksLeft.innerText = i;
-        }, i * 10)
-    }
-
-    for (let i = 0; i < yearsLeftNumber * 365; i++) {
-        setTimeout(() => {
-            daysLeft.innerText = i;
-        }, i)
-    }
-
-    // for (let i = 0; i < yearsLeftNumber * 365 * 24 * 60; i++) {
-    //     setTimeout(() => {
-    //         minutesLeft.innerText = i;
-    //     }, i)
-    // }
-
-    // for (let i = 0; i < yearsLeftNumber * 365 * 24 * 60 * 60; i++) {
-    //     setTimeout(() => {
-    //         secondsLeft.innerText = i;
-    //     }, i)
-    // }
+    monthsLeft.innerText = Math.floor(yearsLeftNumber * 12);
+    weeksLeft.innerText = Math.floor(yearsLeftNumber * 52);
+    daysLeft.innerText = Math.floor(yearsLeftNumber * 365);
+    hoursLeft.innerText = Math.floor(yearsLeftNumber * 365 * 24);
+    minutesLeft.innerText = Math.floor(yearsLeftNumber * 365 * 24 * 60);
+    secondsLeft.innerText = Math.floor(yearsLeftNumber * 365 * 24 * 60 * 60);
 }
 
 createMainContent()
