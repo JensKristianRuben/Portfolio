@@ -1,6 +1,7 @@
-createNavBar()
-createSections()
-projectDiv1()
+createNavBar();
+createSections();
+projectDiv1();
+projectDiv2();
 
 function createNavBar() {
     const navBar = document.createElement('nav');
@@ -59,7 +60,7 @@ function projectDiv1() {
 
     const description = document.createElement("h3");
     description.classList.add('description');
-    description.innerText = "En visuel præsentation af hvor mange uger du har tilbage at leve i. Og hvor mange af dem du måske har spildt ind til nu?"
+    description.innerText = "En visuel præsentation af hvor mange uger du har tilbage at leve i. Og hvor mange af dem du måske har spildt indtil nu?"
 
     const project1Link = document.createElement("a");
     project1Link.id = "project1Button";
@@ -70,6 +71,26 @@ function projectDiv1() {
     projectDiv1.appendChild(headline);
     projectDiv1.appendChild(description);
     projectDiv1.appendChild(project1Link);
+}
+
+function projectDiv2() {
+    const projectDiv1 = document.getElementById('projectDiv2');
+
+    const headline = document.createElement("h1")
+    headline.classList.add('title');
+    headline.innerText = 'JOKE generator';
+
+    const description = document.createElement("h3");
+    description.classList.add('description');
+    description.innerText = "Brug JokeAPI'et til at generere en tilfældig joke"
+
+    const project2Link = document.createElement("a");
+    project2Link.id = "project2Button";
+    project2Link.innerText = "Prøv";
+    project2Link.href = "jokeGenerator.html";
 
 
+    projectDiv1.appendChild(headline);
+    projectDiv1.appendChild(description);
+    projectDiv1.appendChild(project2Link);
 }

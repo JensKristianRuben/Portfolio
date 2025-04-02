@@ -1,0 +1,45 @@
+body{
+    background: lightgreen;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+#jokeDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #033703;
+    color: white;
+    border: 5px solid rgba(220, 31, 31, 0.2);
+    border-radius: 10px;
+    width: 1200px;
+    height: 600px;
+    font-size: 50px;
+}
+
+#jokeButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 200px;
+    color: #3498db;
+    border: 5px solid rgba(220, 31, 31, 0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 50px;
+    transition: 0.5s;
+}
+
+#jokeButton:hover{
+    background: #3498db;
+    color: rgb(3, 55, 3);
+    scale: 1.1;
+    font-size: 60px;
+    border: 5px solid rgb(214, 31, 220);
+}

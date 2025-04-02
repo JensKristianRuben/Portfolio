@@ -65,6 +65,37 @@
     display: none !important;
 }
 
+#project2Button {
+    background: #5c3535;
+    width: 200px;
+    height: 100px;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#project2Button:hover {
+    background: #401717;
+    transform: translateY(-7px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+#project2Button:active {
+    transform: translateY(7px);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+}
+#project2Button::before,
+#project2Button::after {
+    content: none !important;
+    display: none !important;
+}
+
 
 
 @media (max-width: 768px) {
