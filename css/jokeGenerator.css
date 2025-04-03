@@ -3,7 +3,8 @@ body{
     height: 100vh;
     margin: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 50px;
@@ -43,3 +44,35 @@ body{
     font-size: 60px;
     border: 5px solid rgb(214, 31, 220);
 }
+
+#chooseJoke{
+    background: #5a5e42;
+    height: 100vh;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#categories{
+    width: 400px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background: blueviolet;
+    flex-wrap: wrap;
+}
+
+.categoryWrapper{
+    height: 100px;
+    width: 100%;
+}
+.roundRadioBtn{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
