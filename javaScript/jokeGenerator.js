@@ -55,14 +55,18 @@ function createJokeShowingAndButton() {
         chooseAnyCategory.checked = false;
     })
 
+
+
     anyCategory.appendChild(anyLabel);
     anyCategory.appendChild(chooseAnyCategory);
     defaultCategory.appendChild(defaultLabel);
     defaultCategory.appendChild(chooseDefaultCategory);
 
 
+
     categories.appendChild(anyCategory);
     categories.appendChild(defaultCategory);
+
 
     chooseJoke.appendChild(categories);
     document.body.appendChild(chooseJoke);
@@ -78,9 +82,37 @@ function createJokeShowingAndButton() {
 
     document.body.appendChild(jokeDiv);
     document.body.appendChild(jokeButton);
+
+
+    createCheckBoxAndLabel("Programming", "programmingCheckBox");
+    createCheckBoxAndLabel("Misc", "miscCheckBox");
+    createCheckBoxAndLabel("Dark", "darkCheckBox");
+    createCheckBoxAndLabel("Pun", "punCheckBox");
+    createCheckBoxAndLabel("Spooky", "spookyCheckBox");
+    createCheckBoxAndLabel("Christmas", "christmasCheckBox");
+
 }
 
 async function showJoke() {
     const joke = await getJoke();
     document.getElementById('jokeDiv').innerHTML = joke;
 }
+
+function createCheckBoxAndLabel(labelText, id){
+    const defaultCategory = document.getElementById("defaultCategory");
+
+    const checkBox = document.createElement("input");
+    checkBox.id = id;
+    checkBox.classList.add("checkBox");
+    checkBox.type = "radio";
+    checkBox.name = "category"; // så man kun kan vælge én radio ud af flere
+
+    const checkBoxLabel = document.createElement("label");
+    checkBoxLabel.setAttribute("for", id);
+    checkBoxLabel.innerText = labelText;
+
+    defaultCategory.appendChild(checkBoxLabel);
+    defaultCategory.appendChild(checkBox);
+
+}
+
