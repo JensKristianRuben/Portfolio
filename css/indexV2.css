@@ -5,6 +5,8 @@ body{
     display: flex;
     flex-direction: column;
     font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+
 }
 
 .header{
@@ -37,7 +39,13 @@ body{
 }
 
 .mainText{
+    margin-top: 50px;
+    margin-bottom: 50px;
     width: 500px;
+    font-size: 20px;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+
 }
 
 
@@ -84,4 +92,42 @@ body{
 
 .btn:hover{
     scale: 1.1;
+}
+
+#firstPartHeaderText{
+    font-size: 80px;
+    font-weight: 150;
+}
+
+.headerText{
+    font-size: 60px;
+    font-weight: 400;
+}
+
+@keyframes swipeLeft {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+@keyframes swipeRight {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.swipe-left {
+    animation: swipeLeft 0.9s ease-in-out forwards;
+}
+.swipe-right {
+    animation: swipeRight 0.9s ease-in-out forwards;
 }
