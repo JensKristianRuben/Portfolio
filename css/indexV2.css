@@ -122,6 +122,7 @@ body{
     100% {
         transform: translateX(100%);
         opacity: 0;
+        display: none;
     }
 }
 
@@ -130,4 +131,52 @@ body{
 }
 .swipe-right {
     animation: swipeRight 0.9s ease-in-out forwards;
+}
+
+/* Contact part ----------------------------------*/
+
+#contactMainContainer{
+    display: none;
+    width: 100vw;
+    height: 80vh;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+.swipe-in {
+    animation: swipeIn 0.9s ease-in-out forwards;
+    display: flex;
+}
+
+@keyframes swipeIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+        display: flex;
+    }
+}
+
+.contactDiv{
+    width: 150px;
+    height: 150px;
+}
+.contactLogo{
+    max-height: 100%;
+    max-width: 100%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.contactLogo:hover{
+    transform: scale(1.1);
+}
+.goBackBtn{
+    width: 20%;
+    height: 20%;
+    background: none;
+    border: none;
 }
