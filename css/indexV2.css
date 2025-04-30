@@ -21,6 +21,8 @@ body {
     margin: 20px;
     font-size: 16px;
     transition: 0.2s;
+    text-decoration: none;
+    color: black;
 }
 
 .link:hover {
@@ -151,20 +153,21 @@ body {
     animation: swipeIn 0.9s ease-in-out forwards;
     display: flex;
 }
+
 .swipe-out {
     animation: swipeOut 0.9s ease-in-out forwards;
 }
 
-.swipeBackToMainPage {
-    animation: swipeBackToMainPage 0.9s ease-in-out forwards;
-    display: flex;
+.swipe-to-projects {
+    animation: swipeToProjects 0.9s ease-in-out forwards;
 }
 
-.swipeToProjects{
+.swipe-back-to-main {
     animation: swipeBackToMainPage 0.9s ease-in-out forwards;
-    display: flex;
 }
-
+.swipe-from-left-to-right {
+    animation: swipeFromLeftToRight 0.9s ease-in-out forwards;
+}
 @keyframes swipeIn {
     0% {
         transform: translateX(-100%);
@@ -189,6 +192,37 @@ body {
 }
 
 @keyframes swipeBackToMainPage {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes swipeBackRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes swipeFromLeftToRight {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes swipeToProjects {
     0% {
         transform: translateX(100%);
         opacity: 0;
@@ -224,17 +258,17 @@ body {
 }
 
 /*PROJECTS PAGE*/
-#projectsMainContainer{
+#projectsMainContainer {
     display: none;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 50px   ;
+    gap: 50px;
     width: 100%;
     height: 80vh;
 }
 
-.projectContainer{
+.projectContainer {
     display: flex;
     flex-direction: column;
     height: 400px;
@@ -245,20 +279,24 @@ body {
     word-break: break-word;
     overflow: hidden;
 }
-.projectImageContainer{
+
+.projectImageContainer {
     height: 150px;
     width: 300px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
-.projectImage{
+
+.projectImage {
     height: 100%;
     width: 100%;
     object-fit: cover;
     border-radius: 10px;
 }
-.projectHeader{
+
+.projectHeader {
     margin-left: 15px;
 }
-.projectText{
+
+.projectText {
     margin-left: 15px;
 }
